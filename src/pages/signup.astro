@@ -1,0 +1,23 @@
+---
+import AuthLayout from "../layouts/AuthLayout.astro"
+import Input from "../components/Input.astro"
+import Button from "../components/Button.astro"
+---
+
+<AuthLayout heading="Create your free account" secondaryText="Get your free DarkScout account now">
+    <form class="signup">
+        <Input label="Email" placeholder="Email" name="Email"/>
+        <Input label="Username" placeholder="Username" name="Username"/>
+        <Input label="Password" placeholder="Password" name="Password"/>
+        <Button name="Sign Up"/>
+    </form>
+</AuthLayout>
+
+<style>
+.signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+</style>

@@ -1,0 +1,23 @@
+---
+interface Props {
+    name: string;
+}
+
+const {name} = Astro.props
+---
+<button>{name}</button>
+
+<style>
+button {
+    width: 80%;
+    height: 40px;
+    background-color: #4338CA;
+    color: #C9CAE9;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    margin-top: 24px;
+    border: none;
+}
+
+</style>
