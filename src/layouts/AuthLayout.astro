@@ -6,13 +6,15 @@ import Vector from  "../assets/Vector.svg"
 interface Props {
     heading: string;
     secondaryText: string;
+    boxHeight?: string;
 }
-const {heading, secondaryText} = Astro.props
+const {heading, secondaryText, boxHeight="598px"} = Astro.props
 ---
 
 <Layout title="auth">
     <div class="auth-container">
-        <div class="auth-box">
+        <div class="auth-box"
+            style={`height: ${boxHeight};`}>
             <div class="top-items">
                 <Image src={Vector} alt="DarkScout" loading="eager"/>
                 <div class="top-text">
@@ -74,7 +76,6 @@ html::after {
 
 .auth-box {
     width: 479px;
-    min-height: 598px;
     padding: 48px 0 0 0;
     position: relative;
     border-radius: 16px;
