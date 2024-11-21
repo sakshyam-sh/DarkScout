@@ -1,54 +1,66 @@
-# Astro Starter Kit: Basics
+# Overview
 
-```sh
-npm create astro@latest -- --template basics
+Brief description of the project. Its purpose, and main functionality
+
+# Setup
+
+## Prerequisites
+
+Bun (version 1.1.36)
+Please follow the link for any specifics about installing bun
+https://bun.sh/docs/installation
+
+## Installation
+
+### Clone the repository
+
+git clone [url]
+cd DarkScout
+
+### Install dependencies
+
+bun install
+
+## Development
+
+Running the Project
+bun run dev
+
+After running with bun run dev, By default the development server runs on:  http://localhost:4321
+
+## Building the project
+
+bun run build
+bun ./dist/server/entry.mjs
+
+# Project Structure
+
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+DarkScout                    # Root directory of the project
+├── astro.config.mjs         # Astro configuration file for project-specific settings
+├── bun.lockb                # Lockfile for Bun package manager (ensures consistent dependencies)
+├── package.json             # Project metadata and dependency management
+├── public                   # Directory for static assets served directly
+│   └── favicon.svg          # Website favicon
+├── README.md                # Project documentation and overview
+├── src                      # Source code directory
+│   ├── assets               # Non-component static assets
+│   │   ├── eye.svg          # SVG icon asset
+│   │   └── Vector.svg       # Another SVG asset
+│   ├── components           # Reusable UI components
+│   │   ├── Button.astro     # Reusable button component
+│   │   ├── Card.astro       # Card layout component
+│   │   ├── Header.astro     # Site header component
+│   │   └── Input.astro      # Form input component
+│   ├── env.d.ts             # TypeScript declarations for environment variables
+│   ├── layouts              # Page layout components
+│   │   ├── AuthLayout.astro # Layout for authentication pages
+│   │   └── Layout.astro     # Base layout for the site
+│   ├── pages                # Astro pages that define routes
+│   │   ├── forgot-password.astro # Forgot password page
+│   │   ├── index.astro      # Homepage
+│   │   └── sign-in.astro    # Sign-in page
+│   └── styles               # Global styling
+│   └── global.css           # Main CSS file for global styles
+└── tsconfig.json            # TypeScript configuration file
 ```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
