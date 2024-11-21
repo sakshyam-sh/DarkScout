@@ -4,10 +4,13 @@ import Input from "../components/Input.astro"
 import Button from "../components/Button.astro"
 ---
 
-<AuthLayout heading="Wecome Back" secondaryText="Sign in to continue to DarkScout">
+<AuthLayout
+    heading="Welcome Back"
+    secondaryText="Sign in to continue to DarkScout"
+>
     <form class="sign-in">
         <Input label="Email" placeholder="Email" name="Email"/>
-        <Input label="Password" placeholder="Password" name="Password"/>
+        <Input label="Password" placeholder="Password" name="Password" isPassword={true}/>
         <div class="checkbox-container">
             <label>
                 <input type="checkbox" name="remember" />
@@ -49,9 +52,15 @@ import Button from "../components/Button.astro"
 }
 
 .checkbox-container input[type="checkbox"] {
-    accent-color: #5B21B6;
+    appearance: none;
+    cursor: pointer;
+    border: 1px solid #C9CAE9;
+    border-radius: 4px;
     width: 16px;
     height: 16px;
+}
+.checkbox-container input[type="checkbox"]:checked {
+    background: white;
 }
 
 .checkbox-container .forgot-password {
@@ -62,8 +71,11 @@ import Button from "../components/Button.astro"
     cursor: pointer;
 }
 
-.checkbox-container .forgot-password:hover {
-    text-decoration: underline;
+form span {
+    color: #6B7280;
+}
+form a {
+    color: #4338CA;
 }
 
 </style>
