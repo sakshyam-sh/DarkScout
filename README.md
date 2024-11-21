@@ -6,32 +6,42 @@ Brief description of the project. Its purpose, and main functionality
 
 ## Prerequisites
 
-Bun (version 1.1.36)
-Please follow the link for any specifics about installing bun
+1. Bun (version 1.1.36)
 https://bun.sh/docs/installation
+
+2. Git
+https://git-scm.com/downloads
 
 ## Installation
 
 ### Clone the repository
 
-git clone [url]
+```
+git clone [url to repository]
 cd DarkScout
+
+```
 
 ### Install dependencies
 
-bun install
+`bun install`
 
 ## Development
 
-Running the Project
-bun run dev
+### Running the Project
+
+`bun run dev`
 
 After running with bun run dev, By default the development server runs on:  http://localhost:4321
 
-## Building the project
+### Building the project
 
+```
 bun run build
+
 bun ./dist/server/entry.mjs
+
+```
 
 # Project Structure
 
