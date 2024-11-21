@@ -11,39 +11,50 @@ interface Props {
 const {heading, secondaryText, boxHeight="598px"} = Astro.props
 ---
 
-<Layout title="auth">
-    <div class="auth-container">
-        <div class="auth-box"
-            style={`height: ${boxHeight};`}>
-            <div class="top-items">
-                <Image src={Vector} alt="DarkScout" loading="eager"/>
-                <div class="top-text">
-                    <h2>{heading}</h2>
-                    <p>{secondaryText}</p>
+<Layout title="DarkScout">
+    <div class="auth-wrapper">
+        <div class="auth-container">
+            <div class="auth-box" style={`height: ${boxHeight};`}>
+                <div class="top-items">
+                    <Image src={Vector} alt="DarkScout" loading="eager" />
+                    <div class="top-text">
+                        <h2>{heading}</h2>
+                        <p>{secondaryText}</p>
+                    </div>
                 </div>
+                <slot />
             </div>
-            <slot />
+        </div>
+        <div class="terms-text">
+            <p>
+                By using Dark Scout, you agree to terms outlined in the
+                <br/>
+                <a href="/terms">License Agreement </a>and<a> Privacy Policy.</a>
+            </p>
         </div>
     </div>
 </Layout>
 
 <style>
 
-*{
-    padding: 0px;
-    margin: 0px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* background */
-html {
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
     background: #0f172a;
-    position: relative;
-    min-height: 100vh;
     overflow: hidden;
+    position: relative;
 }
 
-html::after,
-html::before {
+/* Background */
+html::before,
+html::after {
     content: '';
     position: absolute;
     width: 1019px;
@@ -51,8 +62,8 @@ html::before {
     background: #5B21B6;
     opacity: 0.25;
     filter: blur(140px);
+    z-index: 1;
     transform: rotate(-180deg);
-    z-index: -1;
 }
 
 html::before {
@@ -65,13 +76,23 @@ html::after {
     left: -102px;
 }
 
-/*authentication container*/
-.auth-container {
+/* Authentication Wrapper */
+.auth-wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+    position: relative;
+}
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
 }
 
 .auth-box {
@@ -79,10 +100,9 @@ html::after {
     padding: 48px 0 0 0;
     position: relative;
     border-radius: 16px;
-    gap: 48px;
+    gap: 32px;
     display: flex;
     flex-direction: column;
-
     background:
         linear-gradient(0deg, rgba(24, 26, 59, 0.6), rgba(24, 26, 59, 0.6)),
         radial-gradient(
@@ -91,20 +111,10 @@ html::after {
             rgba(0, 0, 0, 0.104) 53%,
             rgba(91, 33, 182, 0.16) 100%
         );
-
     box-shadow: 0px -1px 21px -7px #442F8E;
 }
 
-.auth-box::after {
-    content: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: #2B2E69;
-}
-
+/* Top Items */
 .top-items {
     display: flex;
     flex-direction: column;
@@ -117,18 +127,45 @@ html::after {
     flex-direction: column;
     align-items: center;
     gap: 8px;
+    text-align: center;
 }
 
-.top-text h2{
+.top-text h2 {
     font-weight: 600;
     font-size: 24px;
     line-height: 32px;
+    color: white;
 }
 
-.top-text p{
+.top-text p {
     font-weight: 400;
     font-size: 14px;
-    line-height: 14px;
+    line-height: 18px;
+    color: #A1A1A1;
+}
+
+/* Terms Text */
+.terms-text {
+    text-align: center;
+    margin-top: 64px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #6B7280;
+    z-index: 2;
+}
+
+.terms-text a {
+    color: #4338CA;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.terms-text a:hover {
+    text-decoration: underline;
 }
 
 </style>
+
