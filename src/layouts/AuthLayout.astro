@@ -4,16 +4,22 @@ import { Image } from 'astro:assets';
 import Vector from  "../assets/Vector.svg"
 
 interface Props {
-    heading: string;
-    secondaryText: string;
-    boxHeight?: string;
-    bottomText: string;
-    bottomLink: string;
+    boxHeight: string;
+    boxWidth: string;
+    showVector: boolean;
+    showTermsText: boolean;
+    heading?: string;
+    secondaryText?: string;
+    bottomText?: string;
+    bottomLink?: string;
 }
 const {
+    boxHeight,
+    boxWidth,
+    showVector,
+    showTermsText=true,
     heading,
     secondaryText,
-    boxHeight="598px",
     bottomText,
     bottomLink,
 } = Astro.props
@@ -22,18 +28,21 @@ const {
 <Layout title="DarkScout">
     <div class="auth-wrapper">
         <div class="auth-container">
-            <div class="auth-box" style={`height: ${boxHeight};`}>
+            <div class="auth-box" style={`height: ${boxHeight}; width: ${boxWidth};`}>
                 <div class="top-items">
+                    {showVector &&
                     <Image src={Vector} alt="DarkScout" loading="eager" />
+                    }
                     <div class="top-text">
                         <h2>{heading}</h2>
                         <p>{secondaryText}</p>
                     </div>
                 </div>
                 <slot />
-                <span class="bottom-text">{bottomText}<a href={bottomLink.toLowerCase()}>{bottomLink}</a></span>
+                <span class="bottom-text">{bottomText}<a href={bottomLink && bottomLink.toLowerCase().replace(/\s/g, "")}>{bottomLink}</a></span>
             </div>
         </div>
+        {showTermsText &&
         <div class="terms-text">
             <p>
                 By using Dark Scout, you agree to terms outlined in the
@@ -41,6 +50,7 @@ const {
                 <a href="/terms">License Agreement </a>and<a href="/privacy"> Privacy Policy.</a>
             </p>
         </div>
+        }
     </div>
 </Layout>
 
@@ -105,7 +115,7 @@ html::after {
 
 .auth-box {
     width: 479px;
-    padding: 48px 0 0 0;
+    padding: 0 48px;
     position: relative;
     border-radius: 16px;
     gap: 14px;
@@ -128,6 +138,7 @@ html::after {
     flex-direction: column;
     align-items: center;
     gap: 16px;
+    margin-top: 32px;
 }
 
 .top-text {

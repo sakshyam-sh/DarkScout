@@ -7,12 +7,27 @@ import Button from "../components/Button.astro"
 <AuthLayout
     heading="Welcome Back"
     secondaryText="Sign in to continue to DarkScout"
+    boxWidth="479px"
+    boxHeight="598px"
     bottomText="Don't have an account? "
-    bottomLink="SignUp"
+    bottomLink="Sign Up"
+    showVector={true}
+    showTermsText={true}
 >
     <form class="sign-in">
-        <Input label="Email" placeholder="Email" name="Email"/>
-        <Input label="Password" placeholder="Password" name="Password" isPassword={true}/>
+        <Input
+            width="100%"
+            label="Email"
+            placeholder="Email"
+            name="Email"
+        />
+        <Input
+            width="100%"
+            label="Password"
+            placeholder="Password"
+            name="Password"
+            isPassword={true}
+        />
         <div class="checkbox-container">
             <label>
                 <input type="checkbox" name="remember" />
@@ -31,14 +46,15 @@ import Button from "../components/Button.astro"
     align-items: center;
     flex-direction: column;
     gap: 14px;
+    margin-top: 24px;
 }
 
 .checkbox-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 80%;
     margin-top: 8px;
+    width: 100%;
     padding: 0 12px;
 }
 
