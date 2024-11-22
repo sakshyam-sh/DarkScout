@@ -4,24 +4,24 @@ import { Image } from 'astro:assets';
 import Vector from  "../assets/Vector.svg"
 
 interface Props {
-    heading?: string;
-    secondaryText?: string;
     boxHeight: string;
     boxWidth: string;
-    bottomText?: string;
-    bottomLink?: string;
     showVector: boolean;
     showTermsText: boolean;
+    heading?: string;
+    secondaryText?: string;
+    bottomText?: string;
+    bottomLink?: string;
 }
 const {
-    heading,
-    secondaryText,
     boxHeight,
     boxWidth,
+    showVector,
+    showTermsText=true,
+    heading,
+    secondaryText,
     bottomText,
     bottomLink,
-    showVector,
-    showTermsText=true
 } = Astro.props
 ---
 
@@ -39,7 +39,7 @@ const {
                     </div>
                 </div>
                 <slot />
-                <span class="bottom-text">{bottomText}<a href={bottomLink && bottomLink.toLowerCase()}>{bottomLink}</a></span>
+                <span class="bottom-text">{bottomText}<a href={bottomLink && bottomLink.toLowerCase().replace(/\s/g, "")}>{bottomLink}</a></span>
             </div>
         </div>
         {showTermsText &&
@@ -115,7 +115,7 @@ html::after {
 
 .auth-box {
     width: 479px;
-    padding: 48px 0 0 0;
+    padding: 0 48px;
     position: relative;
     border-radius: 16px;
     gap: 14px;
@@ -138,6 +138,7 @@ html::after {
     flex-direction: column;
     align-items: center;
     gap: 16px;
+    margin-top: 32px;
 }
 
 .top-text {
