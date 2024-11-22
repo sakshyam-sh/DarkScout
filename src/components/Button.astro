@@ -1,11 +1,25 @@
 ---
 interface Props {
     name: string;
+    route?: string;
+    preventSubmit?: boolean;
 }
-
-const {name} = Astro.props
+const { name, route, preventSubmit = false } = Astro.props as Props;
 ---
-<button>{name}</button>
+<button type="button" data-route={route} data-prevent-submit={preventSubmit}>{name}</button>
+
+<script>
+    const buttons = document.querySelectorAll('button[data-route]');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const route = button.getAttribute('data-route');
+            if (route) {
+                window.location.href = `/forgot-password/${route}`;
+            }
+        });
+    });
+</script>
 
 <style>
 button {
@@ -22,5 +36,4 @@ button {
     line-height: 24px;
     border: none;
 }
-
 </style>
