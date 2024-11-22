@@ -2,27 +2,33 @@
 interface Props {
     name: string;
     route?: string;
-    preventSubmit?: boolean;
 }
-const { name, route, preventSubmit = false } = Astro.props as Props;
+const { name, route } = Astro.props as Props;
 ---
-<button type="button" data-route={route} data-prevent-submit={preventSubmit}>{name}</button>
+<button type="button" data-route={route} class="custom-button">{name}</button>
 
 <script>
-    const buttons = document.querySelectorAll('button[data-route]');
+    document.addEventListener('DOMContentLoaded', () => {
+        const buttons = document.querySelectorAll('.custom-button[data-route]');
 
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            const route = button.getAttribute('data-route');
-            if (route) {
-                window.location.href = `/forgot-password/${route}`;
-            }
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const route = button.getAttribute('data-route');
+                if (route) {
+                    // Get current path and append the new route
+                    const currentPath = window.location.pathname;
+                    const newPath = currentPath.endsWith('/')
+                        ? `${currentPath}${route}`
+                        : `${currentPath}/${route}`;
+                    window.location.href = newPath;
+                }
+            });
         });
     });
 </script>
 
 <style>
-button {
+.custom-button {
     width: 100%;
     height: 40px;
     background-color: #4338CA;

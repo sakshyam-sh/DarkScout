@@ -1,7 +1,6 @@
 ---
-import AuthLayout from "../../../layouts/AuthLayout.astro"
-import Input from "../../../components/Input.astro"
-import Button from "../../../components/Button.astro"
+import AuthLayout from "../../../../layouts/AuthLayout.astro"
+import Button from "../../../../components/Button.astro"
 ---
 
 <AuthLayout
@@ -22,7 +21,7 @@ import Button from "../../../components/Button.astro"
             <input maxlength="1">
             <input maxlength="1">
         </div>
-        <Button name="Verify"/>
+        <Button route="reset-password" name="Verify"/>
     </form>
 </AuthLayout>
 
