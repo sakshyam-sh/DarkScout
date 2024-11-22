@@ -1,7 +1,7 @@
 ---
 interface Props {
     width: string,
-    height: string,
+    height?: string,
     label?: string,
     name: string,
     placeholder?: string,
@@ -30,6 +30,14 @@ const { width, height, label, name, placeholder, isPassword } = Astro.props as P
 </div>
 
 <style define:vars={{width: width, height: height}}>
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active{
+    -webkit-text-fill-color: #ffffff;
+    transition: background-color 5000s ease-in-out 0s;
+}
 
 .label {
     color: #C9CAE9;
@@ -63,6 +71,9 @@ const { width, height, label, name, placeholder, isPassword } = Astro.props as P
     line-height: 24px;
     padding: 12px;
     margin-bottom: 12px;
+}
+.input-group input:focus{
+    border: 1px solid #2B2E69;
 }
 
 .input-group input::placeholder {
