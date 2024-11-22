@@ -4,36 +4,45 @@ import { Image } from 'astro:assets';
 import Vector from  "../assets/Vector.svg"
 
 interface Props {
-    heading: string;
-    secondaryText: string;
-    boxHeight?: string;
-    bottomText: string;
-    bottomLink: string;
+    heading?: string;
+    secondaryText?: string;
+    boxHeight: string;
+    boxWidth: string;
+    bottomText?: string;
+    bottomLink?: string;
+    showVector: boolean;
+    showTermsText: boolean;
 }
 const {
     heading,
     secondaryText,
-    boxHeight="598px",
+    boxHeight,
+    boxWidth,
     bottomText,
     bottomLink,
+    showVector,
+    showTermsText=true
 } = Astro.props
 ---
 
 <Layout title="DarkScout">
     <div class="auth-wrapper">
         <div class="auth-container">
-            <div class="auth-box" style={`height: ${boxHeight};`}>
+            <div class="auth-box" style={`height: ${boxHeight}; width: ${boxWidth};`}>
                 <div class="top-items">
+                    {showVector &&
                     <Image src={Vector} alt="DarkScout" loading="eager" />
+                    }
                     <div class="top-text">
                         <h2>{heading}</h2>
                         <p>{secondaryText}</p>
                     </div>
                 </div>
                 <slot />
-                <span class="bottom-text">{bottomText}<a href={bottomLink.toLowerCase()}>{bottomLink}</a></span>
+                <span class="bottom-text">{bottomText}<a href={bottomLink && bottomLink.toLowerCase()}>{bottomLink}</a></span>
             </div>
         </div>
+        {showTermsText &&
         <div class="terms-text">
             <p>
                 By using Dark Scout, you agree to terms outlined in the
@@ -41,6 +50,7 @@ const {
                 <a href="/terms">License Agreement </a>and<a href="/privacy"> Privacy Policy.</a>
             </p>
         </div>
+        }
     </div>
 </Layout>
 
