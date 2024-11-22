@@ -1,9 +1,8 @@
 ---
-import AuthLayout from "../layouts/AuthLayout.astro"
-import Input from "../components/Input.astro"
-import Button from "../components/Button.astro"
+import AuthLayout from "../../layouts/AuthLayout.astro"
+import Input from "../../components/Input.astro"
+import Button from "../../components/Button.astro"
 ---
-
 <AuthLayout
     heading="Forgot your password?"
     secondaryText="Reset your DarkScout account password now."
@@ -19,13 +18,16 @@ import Button from "../components/Button.astro"
             placeholder="Email"
             name="Email"
         />
-        <Button name="Reset Password"/>
+        <Button
+            route="verify"
+            name="Reset Password"
+            client:load
+        />
     </form>
 </AuthLayout>
 
 <style>
-
-.forgot-password{
+.forgot-password {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,5 +35,4 @@ import Button from "../components/Button.astro"
     gap: 6px;
     margin-top: 24px;
 }
-
 </style>

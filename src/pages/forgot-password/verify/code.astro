@@ -1,0 +1,63 @@
+---
+import AuthLayout from "../../../layouts/AuthLayout.astro"
+import Input from "../../../components/Input.astro"
+import Button from "../../../components/Button.astro"
+---
+
+<AuthLayout
+    heading="Forgot your password?"
+    secondaryText="Reset your DarkScout account password now."
+    boxWidth="479px"
+    boxHeight="402px"
+    showVector={true}
+    showTermsText={true}
+>
+    <form class="code">
+        <label>Enter code</label>
+        <div class="code-input">
+            <input maxlength="1">
+            <input maxlength="1">
+            <input maxlength="1">
+            <input maxlength="1">
+            <input maxlength="1">
+            <input maxlength="1">
+        </div>
+        <Button name="Verify"/>
+    </form>
+</AuthLayout>
+
+<style>
+
+.code {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 8px;
+}
+.code label {
+    margin-top: 1em;
+}
+
+.code p {
+    color: #C9CAE9;
+}
+
+.code-input {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.code input{
+    width: 48px;
+    height: 48px;
+    background: transparent;
+    border: 1px solid #2B2E69;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 24px;
+    line-height: 24px;
+    color: #CBD5E1;
+}
+
+</style>

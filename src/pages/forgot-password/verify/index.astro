@@ -1,0 +1,47 @@
+---
+import AuthLayout from "../../../layouts/AuthLayout.astro"
+---
+
+<AuthLayout
+    heading="Forgot your password?"
+    secondaryText="Reset your DarkScout account password now."
+    boxWidth="479px"
+    boxHeight="402px"
+    showVector={true}
+    showTermsText={true}
+>
+    <form class="forgot-password">
+        <p>We've sent you a verification email. Please click the link in the email to proceed, or enter the verification code below to continue.
+        <div class="verification-link">
+            <a href="/forgot-password/verify/code">Enter a verification code instead</a>
+        </div>
+    </form>
+</AuthLayout>
+
+<style>
+
+.forgot-password{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 6px;
+    margin-top: 24px;
+}
+
+.forgot-passord p {
+    color: #C9CAE9;
+}
+
+.verification-link {
+    margin-top: 32px;
+}
+
+.verification-link a {
+    color: #818CF8;
+    text-decoration: none;
+}
+
+
+</style>
