@@ -1,0 +1,97 @@
+---
+import AuthLayout from "../layouts/AuthLayout.astro"
+import Input from "../components/Input.astro"
+import Button from "../components/Button.astro"
+---
+
+<AuthLayout
+    heading="Welcome Back"
+    secondaryText="Sign in to continue to DarkScout"
+    boxWidth="479px"
+    boxHeight="598px"
+    bottomText="Don't have an account? "
+    bottomLink="Sign Up"
+    showVector={true}
+    showTermsText={true}
+>
+    <form class="sign-in">
+        <Input
+            width="100%"
+            label="Email"
+            placeholder="Email"
+            name="Email"
+        />
+        <Input
+            width="100%"
+            label="Password"
+            placeholder="Password"
+            name="Password"
+            isPassword={true}
+        />
+        <div class="checkbox-container">
+            <label>
+                <input type="checkbox" name="remember" />
+                Remember me
+            </label>
+            <a href="/forgot-password" class="forgot-password">Forgot password?</a>
+        </div>
+        <Button name="Sign In"/>
+    </form>
+</AuthLayout>
+
+<style>
+.sign-in {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.checkbox-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+    width: 100%;
+    padding: 0 12px;
+}
+
+.checkbox-container label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #5157B8;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.checkbox-container input[type="checkbox"] {
+    appearance: none;
+    cursor: pointer;
+    border: 1px solid #C9CAE9;
+    border-radius: 4px;
+    width: 16px;
+    height: 16px;
+}
+
+.checkbox-container .forgot-password {
+    color: #C9CAE9;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+form span {
+    color: #6B7280;
+}
+
+form a {
+    color: #4338CA;
+    text-decoration: none;
+}
+
+</style>

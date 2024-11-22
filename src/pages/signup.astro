@@ -4,20 +4,198 @@ import Input from "../components/Input.astro"
 import Button from "../components/Button.astro"
 ---
 
-<AuthLayout heading="Create your free account" secondaryText="Get your free DarkScout account now">
-    <form class="signup">
-        <Input label="Email" placeholder="Email" name="Email"/>
-        <Input label="Username" placeholder="Username" name="Username"/>
-        <Input label="Password" placeholder="Password" name="Password"/>
-        <Button name="Sign Up"/>
-    </form>
-</AuthLayout>
+<div class="container">
+    <div class="signup-text">
+        <div>
+            <h1>Create your free account</h1>
+            <p>Get your free DarkScout account now</p>
+        </div>
+        <div class="points">
+            <div class="left-item">
+                <svg class="tick" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><path fill="white" fill-rule="evenodd" d="m11.39 5.312l-4.318 5.399L3.68 7.884l.64-.768l2.608 2.173l3.682-4.601z" clip-rule="evenodd"/></svg>
+                <span class="left-item-heading">
+                    DarkScout's Threat Intelligence Modules and Investigation Tools
+                </span>
+            </div>
+            <div class="secondary-text">
+                Get instant access to DarkScout's advanced tools for detecting and investigating threats. Explore our platform with the free version to uncover cyber risks lurking on the deep and dark web, empowering your organization to stay ahead of emerging dangers.
+            </div>
+            <div class="left-item">
+                <svg class="tick" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><path fill="white" fill-rule="evenodd" d="m11.39 5.312l-4.318 5.399L3.68 7.884l.64-.768l2.608 2.173l3.682-4.601z" clip-rule="evenodd"/></svg>
+                <span class="left-item-heading">
+                    Real-World Threat Intelligence Cases by DarkScout Experts
+                </span>
+            </div>
+            <div class="secondary-text">
+                Dive into real-world cases curated by DarkScout's seasoned researchers. Discover how we uncover and investigate cybercriminal activities across hidden online networks.
+            </div>
+            <div class="left-item">
+                <svg class="tick" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><path fill="white" fill-rule="evenodd" d="m11.39 5.312l-4.318 5.399L3.68 7.884l.64-.768l2.608 2.173l3.682-4.601z" clip-rule="evenodd"/></svg>
+                <span class="left-item-heading">
+                    Support and Resources
+                </span>
+            </div>
+            <div class="secondary-text">
+                Reach out to unlock concealed data and benefit from dedicated support, comprehensive guides, and resources to maximize your DarkScout experience.
+            </div>
+        </div>
+    </div>
+    <AuthLayout
+        bottomText="Already Have an account? "
+        bottomLink=" Sign In"
+        boxWidth="628px"
+        boxHeight="846px"
+        showVector={false}
+        showTermsText={false}
+    >
+        <form class="sign-up">
+            <div class="inline-field">
+                <Input
+                    width="100%"
+                    label="First Name"
+                    name="First Name"
+                    placeholder="First Name"
+                />
+                <Input
+                    width="100%"
+                    label="Last Name"
+                    name="Last Name"
+                    placeholder="Last Name"
+                />
+            </div>
+            <Input
+                width="100%"
+                label="Phone Number"
+                name="Phone Number"
+                placeholder="Phone Number"
+            />
+            <Input
+                width="100%"
+                label="Password"
+                name="Password"
+                placeholder="Password"
+            />
+            <Input
+                width="100%"
+                label="Re-enter Password"
+                name="Re-enter Password"
+                placeholder="Re-enter Password"
+            />
+            <div class="inline-field">
+                <Input
+                    width="100%"
+                    label="Company Name"
+                    name="Company Name"
+                    placeholder="Company Name"
+                />
+                <Input
+                    width="100%"
+                    label="Email"
+                    name="Email"
+                    placeholder="Email"
+                />
+            </div>
+            <Input
+                width="100%"
+                label="Country/Region"
+                name="Country/Region"
+                placeholder="Country/Region"
+            />
+            <br/>
+            <span class="bottom-text">
+                By using Dark Scout Vision, you agree to the terms outlined in the .
+                <a href="license">
+                    License Agreement
+                </a> and <a href="privacy">
+                    Privacy Policy
+                </a>
+            </span>
+            <br/>
+            <br/>
+            <Button name="Sign Up"/>
+        </form>
+    </AuthLayout>
+</div>
 
 <style>
-.signup {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+
+* {
+    margin: 0;
+    padding: 0;
 }
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 150px;
+}
+
+.left-item {
+    display:flex;
+    align-items: center;
+}
+
+.left-item-heading {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+}
+
+.tick {
+    background: linear-gradient(#6366F1, #A5B4FC);
+    border-radius: 50%;
+    min-width: 24px;
+    min-height: 24px;
+    margin-right: 14px;
+    fill: white;
+}
+
+.points {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.secondary-text {
+    padding-left: 44px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    justify-content: center;
+}
+
+.signup-text {
+    display: flex;
+    width: 518px;
+    flex-direction: column;
+    gap: 48px;
+    z-index: 2;
+}
+
+.signup-text h2{
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 40px;
+}
+
+.signup-text p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.inline-field{
+    display: flex;
+    gap: 20px;
+}
+
+.bottom-text a{
+    text-decoration: none;
+    color: #4338CA;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 14px;
+}
+
 </style>
