@@ -7,6 +7,8 @@ import Button from "../components/Button.astro"
 <AuthLayout
     heading="Welcome Back"
     secondaryText="Sign in to continue to DarkScout"
+    bottomText="Don't have an account? "
+    bottomLink="SignUp"
 >
     <form class="sign-in">
         <Input label="Email" placeholder="Email" name="Email"/>
@@ -19,7 +21,6 @@ import Button from "../components/Button.astro"
             <a href="/forgot-password" class="forgot-password">Forgot password?</a>
         </div>
         <Button name="Sign In"/>
-        <span>Don't have an account?  <a href="signup">SignUp</a></span>
     </form>
 </AuthLayout>
 
@@ -59,12 +60,9 @@ import Button from "../components/Button.astro"
     width: 16px;
     height: 16px;
 }
-.checkbox-container input[type="checkbox"]:checked {
-    background: white;
-}
 
 .checkbox-container .forgot-password {
-    color: #5157B8;
+    color: #C9CAE9;
     text-decoration: none;
     font-size: 14px;
     font-weight: 400;
@@ -74,8 +72,10 @@ import Button from "../components/Button.astro"
 form span {
     color: #6B7280;
 }
+
 form a {
     color: #4338CA;
+    text-decoration: none;
 }
 
 </style>

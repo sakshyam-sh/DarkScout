@@ -7,8 +7,16 @@ interface Props {
     heading: string;
     secondaryText: string;
     boxHeight?: string;
+    bottomText: string;
+    bottomLink: string;
 }
-const {heading, secondaryText, boxHeight="598px"} = Astro.props
+const {
+    heading,
+    secondaryText,
+    boxHeight="598px",
+    bottomText,
+    bottomLink,
+} = Astro.props
 ---
 
 <Layout title="DarkScout">
@@ -23,6 +31,7 @@ const {heading, secondaryText, boxHeight="598px"} = Astro.props
                     </div>
                 </div>
                 <slot />
+                <span class="bottom-text">{bottomText}<a href={bottomLink.toLowerCase()}>{bottomLink}</a></span>
             </div>
         </div>
         <div class="terms-text">
@@ -83,7 +92,6 @@ html::after {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 20px;
     position: relative;
 }
 
@@ -106,10 +114,10 @@ html::after {
     background:
         linear-gradient(0deg, rgba(24, 26, 59, 0.6), rgba(24, 26, 59, 0.6)),
         radial-gradient(
-            289.26% 154.71% at -4.8% -34.79%,
-            rgba(91, 33, 182, 0.16) 0%,
-            rgba(0, 0, 0, 0.104) 53%,
-            rgba(91, 33, 182, 0.16) 100%
+        289.26% 154.71% at -4.8% -34.79%,
+        rgba(91, 33, 182, 0.16) 0%,
+        rgba(0, 0, 0, 0.104) 53%,
+        rgba(91, 33, 182, 0.16) 100%
         );
     box-shadow: 0px -1px 21px -7px #442F8E;
 }
@@ -165,6 +173,23 @@ html::after {
 
 .terms-text a:hover {
     text-decoration: underline;
+}
+
+.bottom-text {
+    margin-top: 24px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    color: #6B7280;
+}
+
+.bottom-text a{
+    text-decoration: none;
+    color: #4338CA;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 14px;
 }
 
 </style>

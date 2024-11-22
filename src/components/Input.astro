@@ -28,12 +28,17 @@ const { label, name, placeholder, isPassword } = Astro.props;
 </div>
 
 <style>
+
+.label {
+    color: #C9CAE9;
+}
+
 .input-group {
     display: flex;
     flex-direction: column;
     width: 80%;
     gap: 6px;
-    margin: 12px;
+    margin-top:8px;
 }
 
 .input-wrapper {
@@ -65,7 +70,7 @@ const { label, name, placeholder, isPassword } = Astro.props;
     width: 24px;
     height: 24px;
     cursor: pointer;
-    fill: white;
+    fill: #C9CAE9;
     pointer-events: auto;
 }
 
