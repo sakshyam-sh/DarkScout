@@ -20,6 +20,7 @@ const { width, height, label, name, required, placeholder, isPassword } = Astro.
             name={name}
             required={required}
             type={isPassword ? "password" : "text"}
+            spellcheck="false"
         />
         {isPassword && (
             <svg class="eye-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
