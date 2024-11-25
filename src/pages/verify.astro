@@ -1,0 +1,149 @@
+---
+import AuthLayout from "../layouts/AuthLayout.astro"
+import Button from "../components/Button.astro"
+---
+
+<AuthLayout
+    heading="Forgot your password?"
+    secondaryText="Reset your DarkScout account password now."
+    boxWidth="479px"
+    boxHeight="402px"
+    showVector={true}
+    showTermsText={true}
+>
+    <form class="code" onsubmit="return false;">
+        <label>Enter verification code</label>
+        <div class="code-input">
+            <input type="tel" maxlength="1" autocomplete="off" tabindex="1">
+            <input type="tel" maxlength="1" autocomplete="off" tabindex="2">
+            <input type="tel" maxlength="1" autocomplete="off" tabindex="3">
+            <input type="tel" maxlength="1" autocomplete="off" tabindex="4">
+            <input type="tel" maxlength="1" autocomplete="off" tabindex="5">
+            <input type="tel" maxlength="1" autocomplete="off" tabindex="6">
+        </div>
+        <Button name="Verify"/>
+    </form>
+</AuthLayout>
+
+<style>
+.code {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 8px;
+}
+
+.code label {
+    margin-top: 1em;
+}
+
+.code p {
+    color: #C9CAE9;
+}
+
+.code-input {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.code input {
+    width: 48px;
+    height: 48px;
+    background: transparent;
+    border: 1px solid #2B2E69;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 24px;
+    line-height: 24px;
+    color: #CBD5E1;
+    transition: all 0.2s ease;
+}
+
+.code input:focus {
+    outline: none;
+    border-color: #4C4FB0;
+    box-shadow: 0 0 0 2px rgba(76, 79, 176, 0.2);
+}
+
+.code input:not(:placeholder-shown) {
+    border-color: #4C4FB0;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('.code');
+    if (!form) return;
+
+    const inputContainer = form.querySelector('.code-input');
+    if (!inputContainer) return;
+
+    const inputs = inputContainer.querySelectorAll('input');
+    if (!inputs || inputs.length === 0) return;
+
+    inputs.forEach((input, index) => {
+        if (!input) return;
+
+
+        input.addEventListener('input', function(e) {
+            if (!e.target) return;
+            const currentInput = e.target as HTMLInputElement;
+            currentInput.value = currentInput.value.replace(/[^0-9]/g, '');
+            if (currentInput.value && index < inputs.length - 1) {
+                const nextInput = inputs[index + 1];
+                if (nextInput) {
+                    nextInput.focus();
+                }
+            }
+        });
+
+        input.addEventListener('keydown', function(e) {
+            if (!e.target) return;
+            const currentInput = e.target as HTMLInputElement;
+            if (e.key === 'Backspace' && !currentInput.value && index > 0) {
+                const prevInput = inputs[index - 1];
+                if (prevInput) {
+                    prevInput.focus();
+                }
+            }
+        });
+
+        input.addEventListener('paste', function(e) {
+            e.preventDefault();
+            if (!e.clipboardData) return;
+
+            const pastedData = e.clipboardData.getData('text').replace(/[^0-9]/g, '').split('');
+
+            inputs.forEach((input, i) => {
+                if (!input) return;
+                if (pastedData[i]) {
+                    input.value = pastedData[i];
+                }
+            });
+
+            const firstEmpty = Array.from(inputs).find(input => input && !input.value);
+            if (firstEmpty || inputs[inputs.length - 1]) {
+                (firstEmpty || inputs[inputs.length - 1]).focus();
+            }
+        });
+    });
+
+    const firstInput = inputs[0];
+    if (firstInput) {
+        firstInput.focus();
+    }
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const code = Array.from(inputs)
+            .map(input => input ? input.value : '')
+            .join('');
+
+        if (code.length === 6) {
+            console.log('Verification code:', code);
+            alert(code);
+        }
+    });
+});
+</script>
