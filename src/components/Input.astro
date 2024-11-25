@@ -1,10 +1,10 @@
 ---
 interface Props {
     width: string,
-    name: string,
-    required:boolean,
     height?: string,
     label?: string,
+    name: string,
+    required: boolean,
     placeholder?: string,
     isPassword?: boolean
 }
@@ -22,11 +22,11 @@ const { width, height, label, name, required, placeholder, isPassword } = Astro.
             type={isPassword ? "password" : "text"}
         />
         {isPassword && (
-        <svg class="eye-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <title>Visibility</title>
-            <path d="M12 4C7 4 2.73 7.11 1 11.5 2.73 15.89 7 19 12 19s9.27-3.11 11-7.5C21.27 7.11 17 4 12 4Zm0 12.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5Zm-3-5c0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3-3-1.34-3-3Z"></path>
-            <metadata>eye, on, reveal, see, show, view, visibility</metadata>
-        </svg>
+            <svg class="eye-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <title>Visibility</title>
+                <path d="M12 4C7 4 2.73 7.11 1 11.5 2.73 15.89 7 19 12 19s9.27-3.11 11-7.5C21.27 7.11 17 4 12 4Zm0 12.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5Zm-3-5c0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3-3-1.34-3-3Z"></path>
+                <metadata>eye, on, reveal, see, show, view, visibility</metadata>
+            </svg>
         )}
     </div>
 </div>
@@ -37,7 +37,8 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active{
-    -webkit-text-fill-color: #ffffff;
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
     transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -74,7 +75,6 @@ input:-webkit-autofill:active{
     padding: 12px;
     margin-bottom: 12px;
 }
-
 .input-group input:focus{
     border: 1px solid #2B2E69;
 }
