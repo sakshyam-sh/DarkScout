@@ -67,9 +67,9 @@ import Button from "../components/Button.astro"
             </div>
             <Input
                 width="100%"
-                label="Phone Number"
-                name="Phone Number"
-                placeholder="984523412"
+                label="Email"
+                name="Email"
+                placeholder="Email"
                 required={true}
             />
             <Input
@@ -98,19 +98,19 @@ import Button from "../components/Button.astro"
                 />
                 <Input
                     width="100%"
-                    label="Email"
-                    name="Email"
-                    placeholder="Email"
+                    label="Phone Number"
+                    name="Phone Number"
+                    placeholder="984523412"
                     required={true}
                 />
             </div>
-            <Input
-                width="100%"
-                label="Country/Region"
-                name="Country/Region"
-                placeholder="Country/Region"
-                required={true}
-            />
+            <label>Country/Region</label>
+            <select name="Country/Region">
+                <option disabled selected value="">Country/Region</option>
+                <option value="United State of America">United State of America</option>
+                <option value="United State of America">Nepal</option>
+            </select>
+            <br/>
             <br/>
             <span class="bottom-text">
                 By using Dark Scout Vision, you agree to the terms outlined in the .
@@ -182,6 +182,33 @@ import Button from "../components/Button.astro"
     gap: 48px;
     z-index: 2;
 }
+
+select {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid #2B2E69;
+    border-radius: 6px;
+    color: #CBD5E1;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    padding: 12px;
+    margin: 12px 0;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='none' stroke='%23CBD5E1' stroke-width='1.5' d='M1 1l4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 10px) center;
+    background-size: 14px;
+}
+
+select option {
+    background-color: #1c1a43;
+    color: #CBD5E1;
+}
+
+
 
 .signup-text h2{
     font-weight: 600;
