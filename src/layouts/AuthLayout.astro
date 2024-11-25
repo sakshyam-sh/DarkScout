@@ -29,7 +29,7 @@ const {
     <div class="auth-wrapper">
         <div class="auth-container">
             <div class="auth-box" style={`height: ${boxHeight}; width: ${boxWidth};`}>
-                <div class="top-items">
+                <div class={`top-items ${!showVector ? 'no-vector' : ''}`}>
                     {showVector &&
                     <Image src={Vector} alt="DarkScout" loading="eager" />
                     }
@@ -139,6 +139,11 @@ html::after {
     align-items: center;
     gap: 16px;
     margin-top: 32px;
+    padding-bottom: 32px;
+}
+
+.top-items.no-vector {
+    padding-bottom: 0;
 }
 
 .top-text {

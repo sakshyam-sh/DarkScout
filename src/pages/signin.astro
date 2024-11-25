@@ -3,7 +3,6 @@ import AuthLayout from "../layouts/AuthLayout.astro"
 import Input from "../components/Input.astro"
 import Button from "../components/Button.astro"
 ---
-
 <AuthLayout
     heading="Welcome Back"
     secondaryText="Sign in to continue to DarkScout"
@@ -33,6 +32,7 @@ import Button from "../components/Button.astro"
         <div class="checkbox-container">
             <label>
                 <input type="checkbox" name="remember" />
+                <span class="checkmark"></span>
                 Remember me
             </label>
             <a href="/forgot-password" class="forgot-password">Forgot password?</a>
@@ -40,7 +40,6 @@ import Button from "../components/Button.astro"
         <Button name="Sign In"/>
     </form>
 </AuthLayout>
-
 <style>
 .sign-in {
     display: flex;
@@ -48,9 +47,7 @@ import Button from "../components/Button.astro"
     align-items: center;
     flex-direction: column;
     gap: 14px;
-    margin-top: 24px;
 }
-
 .checkbox-container {
     display: flex;
     justify-content: space-between;
@@ -59,7 +56,6 @@ import Button from "../components/Button.astro"
     width: 100%;
     padding: 0 12px;
 }
-
 .checkbox-container label {
     display: flex;
     align-items: center;
@@ -68,17 +64,40 @@ import Button from "../components/Button.astro"
     font-size: 14px;
     font-weight: 400;
     cursor: pointer;
+    position: relative;
 }
-
 .checkbox-container input[type="checkbox"] {
-    appearance: none;
+    position: absolute;
+    opacity: 0;
     cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.checkmark {
+    height: 16px;
+    width: 16px;
+    background: transparent;
     border: 1px solid #C9CAE9;
     border-radius: 4px;
-    width: 16px;
-    height: 16px;
+    display: inline-block;
+    position: relative;
+    transition: all 0.2s ease;
 }
-
+.checkbox-container input[type="checkbox"]:checked ~ .checkmark {
+    background-color: #CBD5E1;
+    border: 1px solid #C9CAE9;
+}
+.checkbox-container input[type="checkbox"]:checked ~ .checkmark:after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    width: 4px;
+    height: 8px;
+    border: solid #000;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
 .checkbox-container .forgot-password {
     color: #C9CAE9;
     text-decoration: none;
@@ -86,14 +105,11 @@ import Button from "../components/Button.astro"
     font-weight: 400;
     cursor: pointer;
 }
-
 form span {
     color: #6B7280;
 }
-
 form a {
     color: #4338CA;
     text-decoration: none;
 }
-
 </style>

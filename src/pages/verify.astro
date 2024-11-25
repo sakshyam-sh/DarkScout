@@ -11,15 +11,15 @@ import Button from "../components/Button.astro"
     showVector={true}
     showTermsText={true}
 >
-    <form class="code" onsubmit="return false;">
+    <form action="/reset-password" class="code">
         <label>Enter verification code</label>
         <div class="code-input">
-            <input type="tel" maxlength="1" autocomplete="off" tabindex="1">
-            <input type="tel" maxlength="1" autocomplete="off" tabindex="2">
-            <input type="tel" maxlength="1" autocomplete="off" tabindex="3">
-            <input type="tel" maxlength="1" autocomplete="off" tabindex="4">
-            <input type="tel" maxlength="1" autocomplete="off" tabindex="5">
-            <input type="tel" maxlength="1" autocomplete="off" tabindex="6">
+            <input type="tel" required maxlength="1" autocomplete="off" tabindex="1">
+            <input type="tel" required maxlength="1" autocomplete="off" tabindex="2">
+            <input type="tel" required maxlength="1" autocomplete="off" tabindex="3">
+            <input type="tel" required maxlength="1" autocomplete="off" tabindex="4">
+            <input type="tel" required maxlength="1" autocomplete="off" tabindex="5">
+            <input type="tel" required maxlength="1" autocomplete="off" tabindex="6">
         </div>
         <Button name="Verify"/>
     </form>
@@ -30,11 +30,6 @@ import Button from "../components/Button.astro"
     display: flex;
     flex-direction: column;
     gap: 20px;
-    margin-top: 8px;
-}
-
-.code label {
-    margin-top: 1em;
 }
 
 .code p {
@@ -134,15 +129,13 @@ document.addEventListener('DOMContentLoaded', function() {
         firstInput.focus();
     }
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
+    form.addEventListener('submit', function() {
         const code = Array.from(inputs)
             .map(input => input ? input.value : '')
             .join('');
 
         if (code.length === 6) {
             console.log('Verification code:', code);
-            alert(code);
         }
     });
 });
