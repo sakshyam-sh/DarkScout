@@ -2,6 +2,7 @@
 import AuthLayout from "../layouts/AuthLayout.astro"
 import Input from "../components/Input.astro"
 import Button from "../components/Button.astro"
+import Select from "../components/Select.astro"
 ---
 
 <div class="container">
@@ -104,12 +105,11 @@ import Button from "../components/Button.astro"
                     required={true}
                 />
             </div>
-            <label>Country/Region</label>
-            <select name="Country/Region">
-                <option disabled selected value="">Country/Region</option>
-                <option value="United State of America">United State of America</option>
-                <option value="United State of America">Nepal</option>
-            </select>
+            <Select
+                label="Country/Region"
+                name="Country/Region"
+                required={true}
+            />
             <br/>
             <br/>
             <span class="bottom-text">

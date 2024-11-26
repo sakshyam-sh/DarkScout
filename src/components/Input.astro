@@ -24,99 +24,96 @@ const { width, height, label, name, required, placeholder, isPassword } = Astro.
             spellcheck="false"
         />
         {isPassword && (
-            <div class="icon-wrapper">
-                <img src={EyeIcon.src} alt="Show Password" class="eye-icon show" />
-                <img src={EyeCloseIcon.src} alt="Hide Password" class="eye-icon hide hidden" />
-            </div>
+        <div class="icon-wrapper">
+            <img src={EyeIcon.src} alt="Show Password" class="eye-icon show" />
+            <img src={EyeCloseIcon.src} alt="Hide Password" class="eye-icon hide hidden" />
+        </div>
         )}
     </div>
 </div>
 
 <style define:vars={{width: width, height: height}}>
-    input:-webkit-autofill,
-    input:-webkit-autofill:hover,
-    input:-webkit-autofill:focus,
-    input:-webkit-autofill:active{
-        -webkit-text-fill-color: white;
-        -webkit-box-shadow: 0 0 0px 1000px transparent inset;
-        transition: background-color 5000s ease-in-out 0s;
-    }
-    .label {
-        color: #C9CAE9;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 20px;
-    }
-    .input-group {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-    .input-wrapper {
-        position: relative;
-        display: flex;
-        align-items: center;
-        margin: 12px 0;
-    }
-    .input-group input {
-        width: var(--width);
-        height: var(--height);
-        background: transparent;
-        border: 1px solid #2B2E69;
-        border-radius: 6px;
-        color: #CBD5E1;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 24px;
-        padding: 12px;
-    }
-    .input-group input:focus{
-        border: 1px solid #2B2E69;
-    }
-    .input-group input::placeholder {
-        color: #5157B8;
-    }
-    .icon-wrapper {
-        position: absolute;
-        top: 12px;
-        right: 12px;
-        width: 24px;
-        height: 24px;
-        cursor: pointer;
-    }
-    .eye-icon {
-        width: 24px;
-        height: 24px;
-        fill: #C9CAE9;
-        pointer-events: auto;
-        transition: opacity 0.2s ease;
-    }
-    .hidden {
-        display: none;
-    }
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active{
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+.input-group {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    width: 100%;
+}
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 12px 0;
+}
+.input-group input {
+    width: var(--width);
+    height: var(--height);
+    background: transparent;
+    border: 1px solid #2B2E69;
+    border-radius: 6px;
+    color: #CBD5E1;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    padding: 12px;
+}
+.input-group input:focus{
+    border: 1px solid #2B2E69;
+}
+.input-group input::placeholder {
+    color: #5157B8;
+}
+.icon-wrapper {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+.eye-icon {
+    width: 24px;
+    height: 24px;
+    fill: #C9CAE9;
+    pointer-events: auto;
+    transition: opacity 0.2s ease;
+}
+.hidden {
+    display: none;
+}
 </style>
 
 <script>
-    function initializePasswordToggle() {
-        const iconWrappers = document.querySelectorAll('.icon-wrapper');
-        iconWrappers.forEach(wrapper => {
-            wrapper.addEventListener('click', () => {
-                const input = wrapper.parentElement?.querySelector('input');
-                const showIcon = wrapper.querySelector('.show');
-                const hideIcon = wrapper.querySelector('.hide');
-                if (input && showIcon && hideIcon) {
-                    if (input.type === 'password') {
-                        input.type = 'text';
-                        showIcon.classList.add('hidden');
-                        hideIcon.classList.remove('hidden');
-                    } else {
-                        input.type = 'password';
-                        showIcon.classList.remove('hidden');
-                        hideIcon.classList.add('hidden');
-                    }
+function initializePasswordToggle() {
+    const iconWrappers = document.querySelectorAll('.icon-wrapper');
+    iconWrappers.forEach(wrapper => {
+        wrapper.addEventListener('click', () => {
+            const input = wrapper.parentElement?.querySelector('input');
+            const showIcon = wrapper.querySelector('.show');
+            const hideIcon = wrapper.querySelector('.hide');
+            if (input && showIcon && hideIcon) {
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    showIcon.classList.add('hidden');
+                    hideIcon.classList.remove('hidden');
+                } else {
+                    input.type = 'password';
+                    showIcon.classList.remove('hidden');
+                    hideIcon.classList.add('hidden');
                 }
-            });
+            }
         });
-    }
-    document.addEventListener('DOMContentLoaded', initializePasswordToggle);
+    });
+}
+document.addEventListener('DOMContentLoaded', initializePasswordToggle);
 </script>
