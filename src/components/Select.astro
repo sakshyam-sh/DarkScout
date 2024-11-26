@@ -3,8 +3,6 @@ import { COUNTRIES } from '../data';
 import type { CountryProps } from '../data';
 
 interface Props {
-    width?: string;
-    height?: string;
     label?: string;
     name: string;
     required?: boolean;
@@ -12,23 +10,18 @@ interface Props {
 }
 
 interface Props {
-    width?: string;
-    height?: string;
     label?: string;
     name: string;
     required?: boolean;
     options?: CountryProps[];
 }
 const {
-    width = '100%',
-    height,
     label,
     name,
     required = false,
     options = COUNTRIES
 } = Astro.props;
 ---
-
 <div class="select-group">
     {label && <label for={name}>{label}</label>}
     <div class="select-wrapper">
@@ -117,11 +110,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<style define:vars={{ width: width, height: height }}>
+<style>
 .select-group {
     display: flex;
     flex-direction: column;
-    width: 100%;
     position: relative;
 }
 label {
@@ -147,8 +139,6 @@ label {
     border: 0;
 }
 .custom-select {
-    width: var(--width);
-    height: var(--height, auto);
     background: transparent;
     border: 1px solid #2B2E69;
     border-radius: 6px;
