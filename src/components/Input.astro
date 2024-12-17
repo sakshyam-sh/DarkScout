@@ -1,26 +1,28 @@
 ---
+import type { HTMLAttributes } from 'astro/types';
 import EyeIcon from '../assets/eye.svg';
 import EyeCloseIcon from '../assets/eye-close.svg';
 
-interface Props {
+interface Props extends HTMLAttributes<'input'>{
     width: string,
-    height?: string,
-    label?: string,
     name: string,
     required: boolean,
+    height?: string,
+    label?: string,
     placeholder?: string,
     isPassword?: boolean
 }
 const { width, height, label, name, required, placeholder, isPassword } = Astro.props as Props;
 ---
 <div class="input-group">
-    <label for={name}>{label}</label>
+    {label && <label for={name}>{label}</label>}
     <div class="input-wrapper">
         <input
-            placeholder={placeholder}
+            id={name}
             name={name}
-            required={required}
             type={isPassword ? "password" : "text"}
+            placeholder={placeholder}
+            required={required}
             spellcheck="false"
         />
         {isPassword && (
@@ -93,7 +95,7 @@ input:-webkit-autofill:active{
 }
 </style>
 
-<script>
+<script >
 function initializePasswordToggle() {
     const iconWrappers = document.querySelectorAll('.icon-wrapper');
     iconWrappers.forEach(wrapper => {
