@@ -5,51 +5,39 @@ import Button from "../components/Button.astro"
 import Select from "../components/Select.astro"
 ---
 
-<div class="flex items-center justify-center gap-[150px]">
-    <div class="flex w-[518px] flex-col gap-12 z-[2]">
+<div class="container">
+    <div class="signup-text">
         <div>
-            <h1 class="font-semibold text-[32px] leading-10">Create your free account</h1>
-            <p class="font-normal text-sm leading-5">Get your free DarkScout account now</p>
+            <h1>Create your free account</h1>
+            <p>Get your free DarkScout account now</p>
         </div>
-        <div class="flex flex-col gap-8">
-            <div>
-                <div class="flex items-center">
-                    <svg class="bg-gradient-to-r from-indigo-500 to-indigo-400 rounded-full w-6 h-6 mr-[14px] p-[3px]" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
-                        <path fill="white" fill-rule="evenodd" d="m11.39 5.312l-4.318 5.399L3.68 7.884l.64-.768l2.608 2.173l3.682-4.601z" clip-rule="evenodd"/>
-                    </svg>
-                    <span class="font-medium text-[20px] leading-7">
-                        DarkScout's Threat Intelligence Modules and Investigation Tools
-                    </span>
-                </div>
-                <div class="pl-11 font-normal text-sm leading-5">
-                    Get instant access to DarkScout's advanced tools for detecting and investigating threats. Explore our platform with the free version to uncover cyber risks lurking on the deep and dark web, empowering your organization to stay ahead of emerging dangers.
-                </div>
+        <div class="points">
+            <div class="left-item">
+                <svg class="tick" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><path fill="white" fill-rule="evenodd" d="m11.39 5.312l-4.318 5.399L3.68 7.884l.64-.768l2.608 2.173l3.682-4.601z" clip-rule="evenodd"/></svg>
+                <span class="left-item-heading">
+                    DarkScout's Threat Intelligence Modules and Investigation Tools
+                </span>
             </div>
-            <div>
-                <div class="flex items-center">
-                    <svg class="bg-gradient-to-r from-indigo-500 to-indigo-400 rounded-full w-6 h-6 mr-[14px] p-[3px]" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
-                        <path fill="white" fill-rule="evenodd" d="m11.39 5.312l-4.318 5.399L3.68 7.884l.64-.768l2.608 2.173l3.682-4.601z" clip-rule="evenodd"/>
-                    </svg>
-                    <span class="font-medium text-[20px] leading-7">
-                        Real-World Threat Intelligence Cases by DarkScout Experts
-                    </span>
-                </div>
-                <div class="pl-11 font-normal text-sm leading-5">
-                    Dive into real-world cases curated by DarkScout's seasoned researchers. Discover how we uncover and investigate cybercriminal activities across hidden online networks.
-                </div>
+            <div class="secondary-text">
+                Get instant access to DarkScout's advanced tools for detecting and investigating threats. Explore our platform with the free version to uncover cyber risks lurking on the deep and dark web, empowering your organization to stay ahead of emerging dangers.
             </div>
-            <div>
-                <div class="flex items-center">
-                    <svg class="bg-gradient-to-r from-indigo-500 to-indigo-400 rounded-full w-6 h-6 mr-[14px] p-[3px]" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
-                        <path fill="white" fill-rule="evenodd" d="m11.39 5.312l-4.318 5.399L3.68 7.884l.64-.768l2.608 2.173l3.682-4.601z" clip-rule="evenodd"/>
-                    </svg>
-                    <span class="font-medium text-[20px] leading-7">
-                        Support and Resources
-                    </span>
-                </div>
-                <div class="pl-11 font-normal text-sm leading-5">
-                    Reach out to unlock concealed data and benefit from dedicated support, comprehensive guides, and resources to maximize your DarkScout experience.
-                </div>
+            <div class="left-item">
+                <svg class="tick" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><path fill="white" fill-rule="evenodd" d="m11.39 5.312l-4.318 5.399L3.68 7.884l.64-.768l2.608 2.173l3.682-4.601z" clip-rule="evenodd"/></svg>
+                <span class="left-item-heading">
+                    Real-World Threat Intelligence Cases by DarkScout Experts
+                </span>
+            </div>
+            <div class="secondary-text">
+                Dive into real-world cases curated by DarkScout's seasoned researchers. Discover how we uncover and investigate cybercriminal activities across hidden online networks.
+            </div>
+            <div class="left-item">
+                <svg class="tick" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><path fill="white" fill-rule="evenodd" d="m11.39 5.312l-4.318 5.399L3.68 7.884l.64-.768l2.608 2.173l3.682-4.601z" clip-rule="evenodd"/></svg>
+                <span class="left-item-heading">
+                    Support and Resources
+                </span>
+            </div>
+            <div class="secondary-text">
+                Reach out to unlock concealed data and benefit from dedicated support, comprehensive guides, and resources to maximize your DarkScout experience.
             </div>
         </div>
     </div>
@@ -62,7 +50,7 @@ import Select from "../components/Select.astro"
         showTermsText={false}
     >
         <form class="sign-up">
-            <div class="flex gap-5">
+            <div class="inline-field">
                 <Input
                     width="100%"
                     label="First Name"
@@ -101,7 +89,7 @@ import Select from "../components/Select.astro"
                 isPassword={true}
                 required={true}
             />
-            <div class="flex gap-5">
+            <div class="inline-field">
                 <Input
                     width="100%"
                     label="Company Name"
@@ -122,30 +110,127 @@ import Select from "../components/Select.astro"
                 name="Country/Region"
                 required={true}
             />
-            <div class="my-8">
-                <span class="text-sm">
-                    By using Dark Scout Vision, you agree to the terms outlined in the
-                    <a href="license" class="text-indigo-700 font-semibold text-sm no-underline">
-                        License Agreement
-                    </a> and <a href="privacy" class="text-indigo-700 font-semibold text-sm no-underline">
-                        Privacy Policy
-                    </a>
-                </span>
-            </div>
+            <br/>
+            <br/>
+            <span class="bottom-text">
+                By using Dark Scout Vision, you agree to the terms outlined in the
+                <a href="license">
+                    License Agreement
+                </a> and <a href="privacy">
+                    Privacy Policy
+                </a>
+            </span>
+            <br/>
+            <br/>
             <Button name="Sign Up"/>
         </form>
     </AuthLayout>
 </div>
 
 <style>
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 150px;
+}
+
+.left-item {
+    display:flex;
+    align-items: center;
+}
+
+.left-item-heading {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+}
+
+.tick {
+    background: linear-gradient(#6366F1, #A5B4FC);
+    border-radius: 50%;
+    min-width: 24px;
+    min-height: 24px;
+    margin-right: 14px;
+    fill: white;
+}
+
+.points {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.secondary-text {
+    padding-left: 44px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    justify-content: center;
+}
+
+.signup-text {
+    display: flex;
+    width: 518px;
+    flex-direction: column;
+    gap: 48px;
+    z-index: 2;
+}
+
 select {
-    @apply w-full bg-transparent border border-[#2B2E69] rounded-md text-slate-300 text-base font-normal
-           py-3 px-3 appearance-none
-           bg-[length:14px] bg-no-repeat bg-[calc(100%-10px)_center];
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid #2B2E69;
+    border-radius: 6px;
+    color: #CBD5E1;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    padding: 12px;
+    margin: 6px 0;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='none' stroke='%23CBD5E1' stroke-width='1.5' d='M1 1l4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 10px) center;
+    background-size: 14px;
 }
 
 select option {
-    @apply bg-[#1c1a43] text-slate-300;
+    background-color: #1c1a43;
+    color: #CBD5E1;
 }
+
+.signup-text h2{
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 40px;
+}
+
+.signup-text p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.inline-field{
+    display: flex;
+    gap: 20px;
+}
+
+.bottom-text a{
+    text-decoration: none;
+    color: #4338CA;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 14px;
+}
+
 </style>
